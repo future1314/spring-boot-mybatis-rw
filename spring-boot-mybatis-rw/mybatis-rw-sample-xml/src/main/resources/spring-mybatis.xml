@@ -52,7 +52,8 @@
 		<!-- mapper和resultmap配置路径 -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:org.spring.boot.mybatis.rw.sample.mapper/**/*Mapper.xml
+				<!--<value>classpath:org.spring.boot.mybatis.rw.sample.mapper/**/*Mapper.xml-->
+				<value>classpath*:com/github/chenlei2/springboot/mybatis/rw/sample/mapper/**/*Mapper.xml
 				</value>
 			</list>
 		</property> 
@@ -63,7 +64,8 @@
     </bean>
 	<!-- 通过扫描的模式，扫描目录下所有的mapper， 根据对应的mapper.xml为其生成代理类-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.spring.boot.mybatis.rw.sample.mapper" />
+		<!--<property name="basePackage" value="org.spring.boot.mybatis.rw.sample.mapper" />-->
+		<property name="basePackage" value="com.github.chenlei2.springboot.mybatis.rw.sample.mapper" />
 	</bean>
 
 </beans>

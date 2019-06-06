@@ -11,9 +11,9 @@
 			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 			
 
-	<context:component-scan base-package="org.spring.boot.mybatis.rw.sample.controller"/>
+	<context:component-scan base-package="com.github.chenlei2.springboot.mybatis.rw.sample.controller"/>
 	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
-	
+	<!-- up down content -->
 	
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 		<property name="favorPathExtension" value="false" />
