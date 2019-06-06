@@ -59,15 +59,17 @@ public class RWPlugin implements Interceptor {
 			String sel = statementHandler.getBoundSql().getSql().trim().substring(0,3);
 			if (sel.equalsIgnoreCase("sel") && !mappedStatement.getId().endsWith(".insert!selectKey")) {
 				key = ConnectionHold.READ;
+				routeConnection(key, conn);
 				if (LOG.isDebugEnabled()) {
-					//LOG.debug("当前数据库为读库, 数据库url"+conn.getMetaData().getURL()+", 数据库name" + conn.getMetaData().getDatabaseProductName());
+					LOG.debug("当前数据库为读库, 数据库url"+conn.getMetaData().getURL()+", 数据库name" + conn.getMetaData().getDatabaseProductName());
 				}
 			} else {
+				routeConnection(key, conn);
 				if (LOG.isDebugEnabled()) {
-					//LOG.debug("当前数据库为写库, 数据库url"+conn.getMetaData().getURL()+", 数据库name" + conn.getMetaData().getDatabaseProductName());
+					LOG.debug("当前数据库为写库, 数据库url"+conn.getMetaData().getURL()+", 数据库name" + conn.getMetaData().getDatabaseProductName());
 				}
 			}
-			routeConnection(key, conn);
+//			routeConnection(key, conn);
 		}
 
 		return invocation.proceed();

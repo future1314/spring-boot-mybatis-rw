@@ -17,7 +17,7 @@ public class StrudentsServiceImpl implements StrudentsService {
 	public void rw() {
 
 		Students students = (Students)sqlSessionTemplate.selectOne("selectByPrimaryKey", 1L);
-		System.out.println(students.getName());
+		System.out.println(students.getName());//从库
 		students.setName("rw");
 		sqlSessionTemplate.update("updateByPrimaryKeySelective", students);
 		studentsMapper.updateByPrimaryKeySelective(students);
